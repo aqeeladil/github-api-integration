@@ -1,5 +1,14 @@
 #!/bin/bash
 
+##############
+# Author: Aqeel
+# Date: 09/07/2024
+# About: This script lists name of the users who have access to the target repository on Github.
+##############
+
+# helper function to make sure that required number of arguments are given while executing the script.
+helper()
+
 # GitHub API URL
 API_URL="https://api.github.com"
 
@@ -34,6 +43,12 @@ function list_users_with_read_access {
         echo "Users with read access to ${REPO_OWNER}/${REPO_NAME}:"
         echo "$collaborators"
     fi
+}
+
+function helper {
+    expected_cmd_args = 2
+    if [ $# -ne $expected_cmd_args]; then
+    echo "Please execute the script with required command=line arguments."
 }
 
 # Main script
